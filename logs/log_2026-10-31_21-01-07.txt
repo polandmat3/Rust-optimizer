@@ -1,0 +1,113 @@
+[21:01:07] Log file: C:\Users\PolandMate\Desktop\Project opti\logs\log_2026-10-31_21-01-07.txt
+[21:01:07] Logs folder: C:\Users\PolandMate\Desktop\Project opti\logs
+[21:01:07] Running as administrator: False
+[21:01:07] Scanning hardware...
+[21:01:07] Reading CPU (WMI Win32_Processor)...
+[21:01:08] CPU: AMD Ryzen 5 5600G with Radeon Graphics (6C/12T, 3.90 GHz)
+[21:01:08] Reading GPU (WMI Win32_VideoController)...
+[21:01:08]   found adapter: AMD Radeon RX 7600
+[21:01:08] GPU vendor: AMD, driver version 32.0.32015.7029
+[21:01:08] GPU: AMD Radeon RX 7600, VRAM 4 GB
+[21:01:08] Reading RAM (WMI Win32_PhysicalMemory)...
+[21:01:08] RAM: 32 GB, 2 stick(s), rated 3200 MHz, running 3200 MHz
+[21:01:08] Reading OS...
+[21:01:08] Reading disks...
+[21:01:08] Hardware scan done.
+[21:01:14] === Calculate started (game: Rust) ===
+[21:01:14] Checking GPU driver (AMD, installed 32.0.32015.7029)...
+[21:01:14] Scanning running processes...
+[21:01:14]   latest AMD release notes: Adrenalin 26.10.2, driver store versions: 32.0.32015.12012, 32.0.21045.20006
+[21:01:14]   driver result: installed 32.0.32015.7029, latest Adrenalin 26.10.2, upToDate=False
+[21:01:15]   closable: PhoneExperienceHost x1, 0.0% CPU, 242 MB
+[21:01:15]   closable: brave x20, 0.1% CPU, 3036 MB
+[21:01:15]   closable: Spotify x9, 0.5% CPU, 1417 MB
+[21:01:15]   total closable: 0.6% CPU, 4695 MB -> est. FPS cost 2.6%
+[21:01:15]   Rust running: False
+[21:01:15] Checking power plan (powercfg /getactivescheme)...
+[21:01:15]   -> Power Scheme GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c  (High performance)
+[21:01:15] Checking Game Mode...
+[21:01:15]   -> AutoGameModeEnabled = 1
+[21:01:15] Checking background game capture (Game DVR)...
+[21:01:15]   -> AppCaptureEnabled = 0
+[21:01:15] Checking Hardware-Accelerated GPU Scheduling...
+[21:01:15]   -> HwSchMode = not set
+[21:01:15] Checking RAM channel config...
+[21:01:15]   -> 2 stick(s)
+[21:01:15] Checking RAM speed vs rated speed (XMP/EXPO)...
+[21:01:15]   -> running 3200 MHz, rated 3200 MHz
+[21:01:15] Check: GPU driver...
+[21:01:15] Check: Overlays...
+[21:01:15] Check: Startup apps...
+[21:01:15]   startup: SteelSeriesGG (all users)
+[21:01:15] Check: Transparency...
+[21:01:15] Check: Update/indexing load...
+[21:01:15] Check: Memory Integrity...
+[21:01:15] Check: Hybrid GPU...
+[21:01:15] Check: Power source...
+[21:01:15] Check: RAM size...
+[21:01:15] Check: Rust drive...
+[21:01:15]   Rust drive d:\ type: NVMe SSD
+[21:01:15] Check: Defender exclusion...
+[21:01:15]   not running as admin: Defender exclusions can't be read.
+[21:01:15] Check: Rust config...
+[21:01:15]   client.cfg: found 6 of 7 known keys
+[21:01:15] Check: Temperatures...
+[21:01:18]   CPU temp: 0 C, GPU temp: 66 C
+[21:01:18] Finding: Power plan = High performance / custom | ok=True | est. gain 0%
+[21:01:18] Finding: Game Mode = On | ok=True | est. gain 0%
+[21:01:18] Finding: Background capture = Off | ok=True | est. gain 0%
+[21:01:18] Finding: HAGS = Off / unsupported | ok=True | est. gain 0%
+[21:01:18] Finding: RAM channels = 2 sticks | ok=True | est. gain 0%
+[21:01:18] Finding: RAM speed = 3200 / 3200 MHz | ok=True | est. gain 0%
+[21:01:18] Finding: Background apps = 0.6% CPU, 4695 MB | ok=False | est. gain 2.5946805110060933%
+[21:01:18] Finding: GPU driver = 32.0.32015.7029 (latest Adrenalin 26.10.2) | ok=False | est. gain 2%
+[21:01:18] Finding: Overlays / monitoring tools = RadeonSoftware | ok=False | est. gain 1%
+[21:01:18] Finding: Discord overlay = Discord running | ok=False | est. gain 0%
+[21:01:18] Finding: Startup apps = 1 known app(s) | ok=False | est. gain 0.3%
+[21:01:18] Finding: Windows transparency effects = Off | ok=True | est. gain 0%
+[21:01:18] Finding: Windows Update / indexing / scan load = quiet | ok=True | est. gain 0%
+[21:01:18] Finding: Memory Integrity (VBS) = Off | ok=True | est. gain 0%
+[21:01:18] Finding: GPU assignment = single GPU / not hybrid | ok=True | est. gain 0%
+[21:01:18] Finding: Power source = Plugged in / desktop | ok=True | est. gain 0%
+[21:01:18] Finding: RAM size = 32 GB | ok=True | est. gain 0%
+[21:01:18] Finding: Rust drive free space = d:\ 158 GB free (42%) | ok=True | est. gain 0%
+[21:01:18] Finding: Rust drive type = d:\ NVMe SSD | ok=True | est. gain 0%
+[21:01:18] Finding: Defender exclusion for Rust = unknown (needs admin) | ok=True | est. gain 0%
+[21:01:18] Finding: Rust effects / V-Sync = none of the known heavy ones on | ok=True | est. gain 0%
+[21:01:18] Finding: Temperatures = CPU 0 C, GPU 66 C (idle reading: start Rust and Calculate again) | ok=True | est. gain 0%
+[21:01:18] Looking for Rust client.cfg...
+[21:01:18]   checking d:\steam\steamapps\common\Rust\cfg\client.cfg
+[21:01:18]   graphics.quality not present in file
+[21:01:18] Rust client.cfg not found.
+[21:01:18] Estimating GPU score...
+[21:01:18]   GPU matched, score 50
+[21:01:18] Estimating CPU score...
+[21:01:18]   CPU matched, score 64
+[21:01:18]   GPU limit ~80 FPS, CPU limit ~96 FPS, bottleneck: GPU
+[21:01:18] Comparing normal (CPU skinning) vs GPU skinning test...
+[21:01:18] Looking for Rust Steam branch (appmanifest_252490.acf)...
+[21:01:18]   branch: public
+[21:01:18]   CPU limit 96, GPU limit 80 -> skinning ratio 0.952 (-4.8%)
+[21:01:18]   Verdict: Stay on normal. Your GPU is the limit, extra skinning work would hurt.
+[21:01:18]   Windows tweak potential 3.894680511006093%, hardware potential 2%
+[21:01:18] Result: current ~76, after Windows ~78, after all ~80
+[21:01:18] === Calculate finished ===
+[21:01:18] Checking which tweaks are still needed...
+[21:01:18] Tweak check: Power plan -> High performance -> already set / not applicable, hidden
+[21:01:18] Tweak check: Turn Windows Game Mode on -> already set / not applicable, hidden
+[21:01:18] Tweak check: Turn background game capture off -> already set / not applicable, hidden
+[21:01:18] Tweak check: Close background apps (OneDrive, Teams, Spotify, Skype, launchers...) -> can be applied
+[21:01:18] Tweak check: Close overlay / monitoring apps (Afterburner, RTSS, GeForce overlay, Game Bar...) -> can be applied
+[21:01:18] Tweak check: Close web browsers (Chrome, Edge, Firefox...) -> can be applied
+[21:01:18] Tweak check: Disable known heavy startup apps -> already set / not applicable, hidden
+[21:01:18] Tweak check: Turn Windows transparency effects off -> already set / not applicable, hidden
+[21:01:18] Tweak check: Force Rust onto the high-performance GPU -> already set / not applicable, hidden
+[21:01:18] Tweak check: Rust process priority -> High -> already set / not applicable, hidden
+[21:01:18] Looking for Rust client.cfg...
+[21:01:18]   checking d:\steam\steamapps\common\Rust\cfg\client.cfg
+[21:01:18]   graphics.quality not present in file
+[21:01:18] Rust client.cfg not found.
+[21:01:18] Tweak check: Rust graphics.quality -> 2 (edits client.cfg) -> already set / not applicable, hidden
+[21:01:18] Tweak check: Rust: turn off V-Sync and heavy effects (edits client.cfg) -> already set / not applicable, hidden
+[21:01:18] Tweak check: Windows Defender: exclude the Rust folder (admin) -> needs admin, hidden
+[21:01:18] Tweak check: Open the official GPU driver download page -> can be applied

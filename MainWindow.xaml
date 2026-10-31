@@ -1,0 +1,198 @@
+<Window x:Class="ProjectOpti.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
+        Title="Project Opti" Width="1200" Height="780" MinWidth="900" MinHeight="620"
+        WindowStyle="None" Background="{StaticResource BgBrush}"
+        Foreground="{StaticResource TextBrush}" FontFamily="Segoe UI"
+        Loaded="Window_Loaded">
+
+    <shell:WindowChrome.WindowChrome>
+        <shell:WindowChrome CaptionHeight="44" ResizeBorderThickness="6" GlassFrameThickness="0"
+                            CornerRadius="0" UseAeroCaptionButtons="False" />
+    </shell:WindowChrome.WindowChrome>
+
+    <Border BorderBrush="{StaticResource CardBorderBrush}" BorderThickness="1">
+        <Border.Background>
+            <RadialGradientBrush Center="0.5,0" GradientOrigin="0.5,0" RadiusX="0.9" RadiusY="0.9">
+                <GradientStop Color="#1A1230" Offset="0" />
+                <GradientStop Color="#0E1016" Offset="0.85" />
+            </RadialGradientBrush>
+        </Border.Background>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44" />
+                <RowDefinition Height="2" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- ============ title bar ============ -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="14,0,0,0">
+                    <Border Width="26" Height="26" CornerRadius="8" Background="{DynamicResource AccentBrush}">
+                        <TextBlock Text="&#xE945;" FontFamily="Segoe MDL2 Assets" FontSize="13" Foreground="White"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <TextBlock Text="Project Opti" FontSize="14" FontWeight="SemiBold" Margin="10,0,0,0"
+                               VerticalAlignment="Center" />
+                    <TextBlock Text="Rust FPS optimizer" FontSize="12" Foreground="{StaticResource MutedBrush}"
+                               Margin="10,1,0,0" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <!-- status pills -->
+                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,14,0">
+                    <Border Style="{StaticResource Pill}" Padding="10,4">
+                        <TextBlock x:Name="AdminText" Text="..." FontSize="11.5" Foreground="{StaticResource MutedBrush}" />
+                    </Border>
+                    <Border Style="{StaticResource Pill}" Padding="10,4" Margin="8,0,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse x:Name="StatusDot" Width="8" Height="8" Fill="{StaticResource WarnBrush}"
+                                     Margin="0,0,8,0" VerticalAlignment="Center" />
+                            <TextBlock x:Name="StatusText" Text="Starting..." FontSize="11.5" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- accent color dots -->
+                <StackPanel x:Name="SwatchPanel" Grid.Column="3" Orientation="Horizontal"
+                            VerticalAlignment="Center" Margin="0,0,10,0" />
+
+                <!-- min / max / close -->
+                <StackPanel Grid.Column="4" Orientation="Horizontal">
+                    <Button Style="{StaticResource CaptionButton}" Content="&#xE921;" Click="MinButton_Click" />
+                    <Button x:Name="MaxButton" Style="{StaticResource CaptionButton}" Content="&#xE922;"
+                            Click="MaxButton_Click" />
+                    <Button Style="{StaticResource CloseButton}" Content="&#xE8BB;" Click="CloseButton_Click" />
+                </StackPanel>
+            </Grid>
+
+            <!-- busy bar -->
+            <Border Grid.Row="1" ClipToBounds="True" Background="Transparent">
+                <Border x:Name="BusyBar" Width="180" Height="2" HorizontalAlignment="Left"
+                        Visibility="Collapsed" CornerRadius="1" Background="{DynamicResource AccentBrush}">
+                    <Border.RenderTransform>
+                        <TranslateTransform x:Name="BusyMove" />
+                    </Border.RenderTransform>
+                </Border>
+            </Border>
+
+            <!-- ============ 2x2 grid: every quadrant = 25% ============ -->
+            <Grid Grid.Row="2" Margin="18,10,18,18">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="12" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="12" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- top-left: specs -->
+                <Border x:Name="CardSpecs" Grid.Row="0" Grid.Column="0" Style="{StaticResource Card}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="PC SPECS" Style="{StaticResource CardTitle}" />
+                        <TextBox x:Name="SpecsBox" Grid.Row="1" Style="{StaticResource ReadOnlyBox}" />
+                    </Grid>
+                </Border>
+
+                <!-- top-right: logs -->
+                <Border x:Name="CardLogs" Grid.Row="0" Grid.Column="2" Style="{StaticResource Card}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="LOGS" Style="{StaticResource CardTitle}" />
+                        <TextBox x:Name="LogBox" Grid.Row="1" Style="{StaticResource ReadOnlyBox}"
+                                 Foreground="{StaticResource MutedBrush}" FontSize="12" />
+                    </Grid>
+                </Border>
+
+                <!-- bottom-left: FPS potential -->
+                <Border x:Name="CardFps" Grid.Row="2" Grid.Column="0" Style="{StaticResource Card}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="FPS POTENTIAL  -  RUST" Style="{StaticResource CardTitle}" />
+
+                        <Grid Grid.Row="1" Margin="0,0,0,12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="8" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="8" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Background="{StaticResource FieldBrush}" CornerRadius="10" Padding="12,8">
+                                <StackPanel>
+                                    <TextBlock Text="CURRENT" FontSize="10" FontWeight="SemiBold" Foreground="{StaticResource MutedBrush}" />
+                                    <TextBlock x:Name="CurrentFpsText" Text="-" FontSize="26" FontWeight="SemiBold" />
+                                </StackPanel>
+                            </Border>
+                            <Border Grid.Column="2" Background="{StaticResource FieldBrush}" CornerRadius="10" Padding="12,8">
+                                <StackPanel>
+                                    <TextBlock Text="POTENTIAL" FontSize="10" FontWeight="SemiBold" Foreground="{StaticResource MutedBrush}" />
+                                    <TextBlock x:Name="PotentialFpsText" Text="-" FontSize="26" FontWeight="SemiBold"
+                                               Foreground="{DynamicResource AccentBrush}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Grid.Column="4" Background="{StaticResource FieldBrush}" CornerRadius="10" Padding="12,8">
+                                <StackPanel>
+                                    <TextBlock Text="GAIN" FontSize="10" FontWeight="SemiBold" Foreground="{StaticResource MutedBrush}" />
+                                    <TextBlock x:Name="GainText" Text="-" FontSize="26" FontWeight="SemiBold"
+                                               Foreground="{StaticResource SuccessBrush}" />
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+                        <TextBox x:Name="ResultBox" Grid.Row="2" Style="{StaticResource ReadOnlyBox}"
+                                 Text="Press Calculate to estimate your Rust FPS." />
+                    </Grid>
+                </Border>
+
+                <!-- bottom-right: tweaks + buttons -->
+                <Border x:Name="CardTweaks" Grid.Row="2" Grid.Column="2" Style="{StaticResource Card}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="TWEAKS  -  TICK WHAT TO RUN" Style="{StaticResource CardTitle}" />
+
+                        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                            <StackPanel x:Name="TweaksPanel" Margin="0,0,10,0" />
+                        </ScrollViewer>
+
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+                            <Button x:Name="CalculateButton" Content="Calculate" Style="{StaticResource PrimaryButton}"
+                                    Margin="0,0,10,0" Click="CalculateButton_Click" />
+                            <Button x:Name="RunTweaksButton" Content="Run tweaks" Style="{StaticResource SecondaryButton}"
+                                    Click="RunTweaksButton_Click" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
